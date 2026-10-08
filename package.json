@@ -1,0 +1,40 @@
+{
+  "name": "dsh-area-progress",
+  "version": "0.1.0",
+  "description": "跨工作区任务进度查看器（IM 助手辅助插件）：一个插件看遍所有工作区——area_overview 全区概览、area_progress 跨区任务进度详情、area_alerts 异常与待办扫描。只读 ~/.dsh/sessions 会话日志（zstd 分帧解析），不外发、不改写。",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "LICENSE"
+  ],
+  "scripts": {
+    "harness:check": "node --check lib/index.js"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh-plugin",
+    "workspace",
+    "progress",
+    "report",
+    "im"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "id": "dsh-area-progress",
+    "name": "跨工作区进度查看",
+    "version": "0.1.0",
+    "permissions": "工具注册, 只读访问 ~/.dsh/sessions 会话日志",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
